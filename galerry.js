@@ -73,7 +73,7 @@ const photoElements = images.map(image => `<li class="gallery__item">
     <img
       class="gallery__image"
       src="${image.preview}"
-      data-source="${image.original}"
+      data-path="${image.original}"
       alt="Tulips"
     />
   </a>
@@ -83,7 +83,6 @@ const listElement = document.querySelector(".galerry-list");
 listElement.innerHTML = photoElements;
 
 
-
 const links = document.querySelectorAll(".gallery__link");
 console.log(links);
 
@@ -91,17 +90,23 @@ links.forEach((link) => {
     link.addEventListener("click", openModal)
 });
 
-const modalElements = images.map(image => `            <button type="button" class="modal-button">close</button>
-            <img src="" alt="" class="modal-img">`).join("");
-const modalElement = document.querySelector(".modal");
-modalElement.innerHTML = modalElements;
-
 const modalClose = document.querySelector(".backdrop");
 function openModal(parans) {
     modalClose.classList.remove("is-hidden")
 }
 
 const btnClose = document.querySelector(".modal-button");
-btnClose.addEventListener("click", (evnet) => {
+btnClose.addEventListener("click", (event) => {
     modalClose.classList.add("is-hidden");
 })
+
+
+document.querySelector(".galerry-list").addEventListener("click", (event) => {
+    if (event.target.nodeName === "UL") {
+        return;
+    }
+const item = event.target.closest(".gallery__item");
+const imageTag = item.firstElementChild.nextElementSibling;
+document.querySelector(".modal-img").src = imageTag.src;
+console.log();
+});

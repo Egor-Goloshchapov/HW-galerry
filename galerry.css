@@ -1,6 +1,7 @@
 .gallery__image {
     width: 230px;
     height: 230px;
+    object-fit: cover;
 }
 
 .galerry-list {
@@ -11,6 +12,24 @@
 
 .gallery__link {
     border: none;
+}
+
+.modal {
+    width: 1000px;
+    height: 1000px;
+    background-color: aliceblue;
+    display: flex;
+    text-align: center;
+    padding: 20px;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modal-button {
+    width: 50px;
+    height: 50px;
+    padding: 50px 50px;
 }
 
 .backdrop {
@@ -32,19 +51,8 @@
     visibility: hidden;
 }
 
-.modal {
-    width: 1000px;
-    height: 1000px;
-    background-color: aliceblue;
-    display: flex;
-    text-align: center;
-    padding: 20px;
-    justify-content: center;
-}
-
-.modal-button {
-    text-align: center;
-    width: 50px;
-    height: 50px;
-    padding: 50px 50px;
+.modal-img {
+    outline: solid red;
+    width: 600px;
+    height: 300px;
 }
